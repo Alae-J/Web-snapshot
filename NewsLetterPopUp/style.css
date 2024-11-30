@@ -42,7 +42,13 @@ body {
 #newsLetter.active {
     visibility: visible;
     top: 50%;
+    /*  This "active" class is dynamically added or removed by JavaScript 
+        using the toggleNewsLetter() function. It makes the newsletter 
+        visible and centers it in the viewport by changing its "top" 
+        position and "visibility" properties. 
+    */
 }
+
 #newsLetter h2 {
     text-align: center;
     color:#5C4800;
@@ -60,7 +66,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /*  The "align-items" and "justify-content" properties work together 
+        to center the content inside the flex container (.box):
+        - align-items: Vertically centers the child elements along the container's cross-axis.
+        - justify-content: Horizontally centers the child elements along the container's main axis. 
+    */
 }
+
 input, button {
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.1);
