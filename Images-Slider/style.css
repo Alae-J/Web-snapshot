@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.slider-container {
+    max-width: 70%;
+    margin: 30px auto;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+}
+.slider {
+    max-width: 100%;    
+    display: flex;
+    transition: transform 0.4s;
+}
+.slider img {
+    width: 100%;
+}
+.arrow.prev {
+    left: 0;
+}
+.arrow.next {
+    right: 0;
+}
+.arrow {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #e5e5e5;
+    z-index: 10;
+    cursor: pointer;
+    transition: -0.4s;
+    overflow: hidden;
+}
+.slider-container:hover .arrow {
+    width: 50px;
+}

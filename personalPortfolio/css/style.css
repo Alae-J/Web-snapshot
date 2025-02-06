@@ -1,0 +1,434 @@
+/************************************************************
+THEME VARIABLES
+- We'll use CSS Variables (custom properties) to handle
+light & dark theme colors.
+************************************************************/
+
+/* Default theme (light mode) */
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --accent-color: #4a90e2;
+    --section-bg-color: #fff;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --navbar-bg: #ffffff;
+    --navbar-text-color: #333;
+    --footer-bg: #333;
+    --footer-text-color: #fff;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --accent-color: #4a90e2; /* can be changed to something else for dark mode */
+    --section-bg-color: #1e1e1e;
+    --box-shadow-color: rgba(255, 255, 255, 0.1);
+    --navbar-bg: #1e1e1e;
+    --navbar-text-color: #f0f0f0;
+    --footer-bg: #000;
+    --footer-text-color: #ccc;
+}
+
+/************************************************************
+GLOBAL STYLES & RESET
+************************************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* Utility Classes */
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.section-title p {
+    font-size: 1rem;
+    color: #666;
+    transition: color 0.3s ease;
+}
+[data-theme="dark"] .section-title p {
+    color: #999;
+}
+
+/************************************************************
+HEADER / NAVIGATION
+************************************************************/
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: var(--navbar-bg);
+    transition: background-color 0.3s ease;
+}
+
+/* Container for logo, nav, hamburger, theme button */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--navbar-text-color);
+    transition: color 0.3s ease;
+}
+
+nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--navbar-text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Add the shadow only when scrolled */
+#navbar.scrolled {
+    box-shadow: 0 2px 5px var(--box-shadow-color);
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--navbar-text-color);
+    transition: all 0.3s ease;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-button {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--navbar-text-color);
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+.theme-toggle-button:hover {
+    color: var(--accent-color);
+}
+.theme-icon {
+    display: inline-block;
+}
+
+/************************************************************
+HERO SECTION
+************************************************************/
+
+#hero {
+    background: url('../images/flow.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    color: #fff;
+    position: relative;
+}
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+.hero-content .highlight {
+    color: var(--accent-color);
+}
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #357ab8;
+}
+
+/* Hero Animations */
+.animate-fadein {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+.animate-fadein-delay {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/************************************************************
+ABOUT SECTION
+************************************************************/
+
+#about {
+    background-color: var(--section-bg-color);
+    padding: 4rem 2rem;
+    margin-top: 70px; /* to offset fixed header */
+    transition: background-color 0.3s ease;
+}
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.about-img img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 8px 20px var(--box-shadow-color);
+}
+.about-text {
+    max-width: 600px;
+}
+
+/************************************************************
+PROJECTS SECTION
+************************************************************/
+
+#projects {
+    padding: 4rem 2rem;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.project-card {
+    background-color: var(--section-bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px var(--box-shadow-color);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+}
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.project-card h3 {
+    font-size: 1.2rem;
+    margin: 1rem;
+}
+.project-card p {
+    margin: 0 1rem 1rem;
+    color: #666;
+    transition: color 0.3s ease;
+}
+[data-theme="dark"] .project-card p {
+    color: #aaa;
+}
+.project-link {
+    display: inline-block;
+    margin: 0.5rem 1rem 1rem 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/************************************************************
+SKILLS SECTION
+************************************************************/
+
+#skills {
+    padding: 4rem 2rem;
+    background-color: var(--section-bg-color);
+    transition: background-color 0.3s ease;
+}
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: center;
+}
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
+.skill img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+}
+
+/************************************************************
+CONTACT SECTION
+************************************************************/
+
+#contact {
+    padding: 4rem 2rem;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+form {
+    background-color: var(--section-bg-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px var(--box-shadow-color);
+    transition: background-color 0.3s ease;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/************************************************************
+FOOTER
+************************************************************/
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: 1rem 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+footer p {
+    margin: 0;
+}
+footer span#current-year {
+    font-weight: 600;
+}
+
+/************************************************************
+MEDIA QUERIES
+************************************************************/
+
+@media screen and (max-width: 768px) {
+    /* Nav */
+    nav ul {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: var(--navbar-bg);
+        width: 200px;
+        flex-direction: column;
+        align-items: start;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+    nav ul.show {
+        transform: translateX(0);
+    }
+    .hamburger {
+        display: flex;
+    }
+    
+    .navbar-container {
+        position: relative;
+    }
+    /* Hero text scaling */
+    #hero h1 {
+        font-size: 2rem;
+    }
+    #hero p {
+        font-size: 1rem;
+    }
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}

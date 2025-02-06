@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome's Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="init">
+        <h1>Why did the clock get sent to detention?</h1>
+        <a class="why inactive" onclick="showWhy()">> Why?</a>
+        <p>It was <strong>ticking</strong> everyone off! 🕒</p>
+    </div>
+    <div class="hero">
+        <div class="container">
+            <div class="clock">
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let hrs = document.querySelector("#hrs");
+        let min = document.querySelector("#min");
+        let sec = document.querySelector("#sec");
+        
+        setInterval(() => {
+            let currentTime = new Date ();
+            
+            hrs.textContent = (currentTime.getHours() < 10) ? "0" + currentTime.getHours() : currentTime.getHours();
+            min.textContent = (currentTime.getMinutes() < 10) ? "0" + currentTime.getMinutes() : currentTime.getMinutes();
+            sec.textContent = (currentTime.getSeconds() < 10) ? "0" + currentTime.getSeconds() : currentTime.getSeconds();
+        }, 30);
+        
+        const why = document.querySelector(".why");
+        const par = document.querySelector("p")
+        function showWhy () {
+            par.classList.add("active");
+            why.classList.remove("inactive");
+        }
+    </script>
+</body>
+</html>

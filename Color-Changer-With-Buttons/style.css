@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s;
+}
+.button-container {
+    display: flex;
+    gap: 15px;
+}
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+#gray {
+    background-color: gray;
+    color: white;
+}
+#white {
+    background-color: white;
+    color: black;
+}
+#blue {
+    background-color: blue;
+    color: white;
+}
+#yellow {
+    background-color: yellow;
+    color: black;
+}

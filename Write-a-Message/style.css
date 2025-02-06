@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #025a4e, #81ffff);
+}
+.container {
+    padding: 2rem;
+    background-color: rgba(49, 48, 48, 0.75);
+    border-radius: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #81ffff;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+.message {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+.submit {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #025a4e;
+    transition: background-color 0.3s ease;
+}
+.submit:hover {
+    background-color: #81ffff;
+    color: #025a4e;
+}
+.invalid-message {
+    display: none;
+    border-radius: 0px;
+    padding: 0.2rem;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+.message-content {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #2ecc97;
+}

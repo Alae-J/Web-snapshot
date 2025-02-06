@@ -1,0 +1,28 @@
+{
+    "name": "anime-backend",
+    "version": "1.0.0",
+    "description": "Backend for AnimeHub",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "@sentry/node": "^7.120.3",
+        "@sentry/tracing": "^7.120.3",
+        "axios": "^1.7.9",
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "helmet": "^6.2.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^6.13.8",
+        "morgan": "^1.10.0",
+        "node-cache": "^5.1.2",
+        "socket.io": "^4.8.1",
+        "winston": "^3.17.0"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

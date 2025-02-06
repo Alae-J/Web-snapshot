@@ -1,0 +1,86 @@
+#cartoon {
+    --line: #222;
+    --skin: #fca;
+    --hair: #963;
+    --iris: #69c;
+    --shirt: #fff;
+    --shadow: #5002;
+    width: 80vmin;
+    height: 80vmin;
+    background: #f001;
+    background-image: repeating-linear-gradient(#0000 0% 9.7%, gray 9.7% 10%),
+    repeating-linear-gradient(to left, #0000 0 9.7%, gray 9.7% 10%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--line);
+}
+.bread {
+    width: 50%;
+    height: 12%;
+    background: rgb(240, 177, 84);
+    border-right-width: 0.33vmin;
+    top: 30%;
+    left: 12%;
+    border-radius: 100% / 100% 100% 20% 20%;
+    overflow: hidden;
+    transform: rotate(-2deg);
+    position: relative; /* Enables the use of ::after */
+    z-index: 1;
+    box-shadow:
+        0vmin -0.4vmin 0 0.6vmin rgb(173, 143, 78),
+        0vmin 0 0 0.1 black;
+}
+
+.bread::after {
+    content: '';
+    position: absolute;
+    top: 0%; /* Positioning the shadow */
+    left: -0%;
+    width: 110%;
+    height: 50%;
+    background: linear-gradient(
+        to bottom,
+        #faeab499,
+        rgba(240, 177, 84, 0)
+    );
+    border-radius: 50%;
+    z-index: 2; /* Ensures this pseudo-element is above the eye */
+    pointer-events: none; /* Makes sure it doesn’t block interactions */
+}
+.bread::before {
+    content: '';
+    position: absolute;
+    top: 5%; /* Slightly lower to match bread curvature */
+    left: -5%; /* Slightly extend beyond the bread */
+    width: 18%; /* Covers the left side */
+    height: 150%;
+    background: linear-gradient(
+        to right,
+        rgb(255, 207, 135), /* Dark shadow */
+        rgba(240, 177, 84, 0)    /* Fades into the bread */
+    );
+    border-radius: 100%; /* Curved edges for smoothness */
+    z-index: 0; /* Below the bread itself */
+    pointer-events: none; /* Avoid interaction issues */
+}
+.seed {
+    position: absolute;
+    border-radius: 49% 51% 49% 51% / 60% 62% 38% 40%;
+    background: rgb(110, 82, 38);
+    width: 1.5%;
+    height: 10%;
+    z-index: 100;
+    pointer-events: none;
+    transform: rotateX(-40deg);
+}
+
+/* Position individual seeds */
+.bread .seed:nth-child(1) { top: 20%; left: 15%; }
+.bread .seed:nth-child(4) { top: 10%; left: 27%; }
+.bread .seed:nth-child(2) { top: 22%; left: 40%; }
+.bread .seed:nth-child(3) { top: 13%; left: 52%; }
+.bread .seed:nth-child(6) { top: 20%; left: 65%; }
+.bread .seed:nth-child(5) { top: 16%; left: 80%; }
+

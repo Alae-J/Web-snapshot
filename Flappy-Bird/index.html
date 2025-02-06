@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <title>Flappy Bird Game</title>
+    <link rel="stylesheet" href="style.css">
+    <audio id="background-music" src="../Sounds/beatbox.mp3" loop></audio>
+    <audio id="sound_die" src="../Sounds/die.mp3" ></audio>
+    <audio id="sound_success" src="../Sounds/point.mp3" ></audio>
+</head>
+<body>
+    <div class="background"></div>
+    <img src="../Images/Bird.png" alt="invalid-img" class="bird" id="bird-1">
+    <div class="message">
+        Enter To Start Game <p><span style="color: red">&uarr;</span>ArrowUp to Control</p>
+    </div>
+    <div class="score">
+        <span class="score_title"></span>
+        <span class="score_val"></span>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

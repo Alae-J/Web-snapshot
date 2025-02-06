@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %> <!-- We didnt use the = sign cuz it skips the special characters -->
+    <div class="blogs conent">
+        <h2>All Blogs</h2>
+        <% if (blogs.length > 0) { 
+            blogs.forEach ((blog) => { %>
+                <h3 class="title"><%= blog.title %></h3>
+                <p class="snippet"><%= blog.snippet %></p>
+                <% })
+        } else {%>
+            <h3>There are no blogs to display :(</h3>
+        <% } %>
+        </div>
+        <%- include('./partials/footer.ejs') %>
+    </body>
+    </html>

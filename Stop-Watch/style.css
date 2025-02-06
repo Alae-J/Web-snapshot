@@ -1,0 +1,98 @@
+/* Reset and global settings */
+* {
+    box-sizing: border-box; /* Ensures padding and border are included in width/height calculations */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex; /* Centers the container */
+    align-items: center; /* Vertical alignment */
+    justify-content: center; /* Horizontal alignment */
+    min-height: 100vh; /* Full viewport height */
+    min-width: 100vw; /* Full viewport width */
+    text-align: center;
+    font-family: monospace; /* Gives the page a clean, coding-inspired look */
+    background: linear-gradient(to right, #00ffdd, #00c3ff); /* Smooth color gradient */
+    color: white;
+}
+
+/* Main stopwatch container */
+.container {
+    display: flex;
+    flex-direction: column; /* Stacks the content vertically */
+    align-items: center; /* Centers children horizontally */
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+/* Heading style */
+h1 {
+    font-size: 4rem; /* Large font for the title */
+    margin-bottom: 1rem;
+}
+
+/* Time display */
+.time {
+    font-size: 3rem; /* Large font for the time */
+    background: rgba(0, 0, 0, 0.6); /* Matches container style */
+    padding: 0.5rem 1rem;
+    border-radius: 50px; /* Gives a pill-like shape */
+    margin-bottom: 1.5rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for aesthetics */
+}
+
+/* Button container layout */
+.button-container {
+    display: flex;
+    gap: 1rem; /* Adds space between buttons */
+}
+
+/* General button styles */
+button.start, button.stop, button.reset {
+    border: none; /* Removes default border */
+    outline: none; /* Removes outline on focus */
+    padding: 1rem 2rem; /* Adds space inside buttons */
+    font-size: 2rem; /* Larger font for readability */
+    border-radius: 5px; /* Rounded edges */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    transition: background 0.3s, transform 0.2s; /* Smooth changes on hover */
+    width: 150px; /* Consistent button width */
+}
+
+/* Animation: Bounce Effect */
+@keyframes bounce {
+    0%, 100% { /* Starting and ending positions */
+        transform: translateY(0); /* No vertical movement */
+    }
+    50% { /* Midpoint of the animation */
+        transform: translateY(-10px); /* Moves the button 10px upward */
+    }
+}
+
+/* Start button styles */
+button.start {
+    background-color: #00ffdd; /* Green */
+}
+
+/* Stop button styles */
+button.stop {
+    background-color: #ff6a88; /* Red */
+}
+
+/* Reset button styles */
+button.reset {
+    background-color: #ff9a8b; /* Pink */
+}
+
+/* Hover effect for the start button */
+.start:hover {
+    animation: bounce 0.5s; /* Triggers the bounce animation when hovered */
+}
+
+/* Transition explanation:
+- 'background 0.3s' smoothly changes the background color.
+- 'transform 0.2s' ensures smooth size/position changes.
+- Combined with hover, these give a dynamic effect. */
